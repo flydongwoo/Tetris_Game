@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>기말고사 대체과제 테트리스 김동우</title>
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="테트리스">
+        <meta property="og:image" content="./resources/tetris.png">
+        <meta property="og:description" content="Dong woo KIM">
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link href="style.css" rel="stylesheet"/>
+        <link rel="icon" href="favicon.ico.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="main-contents">
+                <canvas id="main-board" class="main-board"></canvas>
+            </div>
+            <div id="side-contents" class="side-contents">
+                <p>
+                    <span id="title">동우가 만든 테트리스 게임</span>
+                </p>
+                <p>
+                    <span class="maker">Copyright 2024 by Dong Woo KIM</span>
+                </p>
+                
+                <canvas id="next-board" class="next-board"></canvas>
+                <p>Level: <span id="level">1</span> <span id="level-up" class="level-up"></span></p>
+                <p>Line: <span id="lines">0</span> <span id="remove-lines" class="remove-lines"></span></p>
+                <p>Score: <span id="score">0</span> <span id="add-score" class="add-score"></span></p>
+                <p>
+                    <span class="high-score-title"># High Score</span><br>
+                    <span id="high-score">0</span>
+                </p>
+                <p>
+                    <button id="start-button" onclick="start()" class="start-button">Game Start</button>
+                </p>
+                <p>
+                    <button id="quit-button" onclick="pressKey(27)" class="quit-button">Finish</button>
+                </p>
+                <p>
+                    <button id="pause-button" onclick="pressKey(80)" class="pause-button">Pause</button>
+                </p>
+                
+                <p>
+                    <button id="toggle-sound-button" onclick="toggleSound()" class="toggle-sound-button">Sound On</button>
+                </p>
+                <p>
+                    <span class="maker">이 게임을 구현할 수 있게 큰 도움 주신 분<br><br>
+                        Ji Hye Won Ph. D.</span>
+                </p>
+                <img src="img01.png" style="width: 340px; height: 221px; position: absolute" onmouseover="this.src='img.png'" onmouseout="this.src='img01.png'">
+            </div>
+        </div>
+        <div id="bottom-container" class="bottom-container">
+            <div id="keypad" class="keypad">
+                <div class="arrow-key-container">
+                    <div class="arrow-key-up-line">
+                        <button id="up-key" class="rotation-key" onclick="pressKey(38)">↑
+                            <br>(Rotate the block)
+                        </button>
+                        <button id="down-key" class="down-key" onclick="pressKey(40)">↓
+                            <br>(down)
+                        </button>
+                    </div>
+                    <div class="arrow-key-down-line">
+                        <button id="left-key" class="arrow-key" onclick="pressKey(37)">←
+                            <br>(left move)
+                        </button>
+                        <button id="right-key" class="arrow-key" onclick="pressKey(39)">→
+                            <br>(right move)
+                        </button>                        
+                    </div>
+                </div>
+                <button id="space-key" class="space-key" onclick="pressKey(32)">spacebar
+                    <br>(Drop the block)
+                </button>
+            </div>
+        </div>
+        <audio loop id='bgm' src='bgm.mp3'></audio>
+        <audio id='sound'></audio>
+        <script src='common.js'></script>
+        <script src='matrix.js'></script>
+        <script src='move.js'></script>
+        <script src='draw.js'></script>
+        <script src='global.js'></script>
+        <script src='main.js'></script>
+    </body>
+</html>
